@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+   
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <!--<vr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+
+    <style>
+        #hideValuesOnSelect {
+           display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <input type="number">
+    <button>Generate</button> -->
+    <div class="container">
+        <form>
+            <div class="info-container">
+                <p>this calculator will find the determinant, inverse, rref(row reduced echelon form) and multiply two matrices</p>
+            </div>
+            <div class="operation">
+                <span><strong>Select an operation:</strong></span>
+                <select class ="operator" onchange="displayDivDemo('hideValuesOnSelect', this)">
+                    <option value="0">Determinant</option>
+                    <option value="1">Multiplication</option>
+                    <!-- <option value="2">Determinant</option> -->
+                    <option value="3">Inverse</option>
+                    </select>
+            </div>
+            <div><strong>Enter the elements of the matrix</strong></div>
+                <!-- <div class = "matrixTab"></div> -->
+                <table class = "tableOne" id="mytab">
+                    <tbody class = bod>
+                        <tr class = "table-row">
+                            <th class = "in1"><input class = "input1" type="number"></th>
+                            <th class = "in1"><input class = "input1" type="number" ></th>
+                            <th class = "in1"><input class = "input1"type="number"></th>
+                        </tr>
+                        <tr class = "table-row">
+                            <th class = "in1"><input class = "input1" type="number"></th>
+                            <th class = "in1"><input class = "input1" type="number" ></th>
+                            <th class = "in1"><input class = "input1" type="number"></th>   
+                        </tr>
+                        <tr class = "table-row">
+                            <th class = "in1"><input class = "input1" type="number"></th>
+                            <th class = "in1"><input class = "input1" type="number" ></th>
+                            <th class = "in1"><input class = "input1" type="number"></th>   
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <!-- <div class ="matrixTab" id="hideValuesOnSelect">   -->
+            
+                <!-- </div> -->
+            <!-- <input class = "mat-row-input" type ="number" placeholder="Enter a number">
+            <input class = "mat-col-input" type ="number" placeholder="Enter a number"> -->
+            <div class="btn-opt">
+                <button class = "btn" type = "button">add row</button>
+                <button class = "del-row" type = "button">delete row</button>
+                <button class = "col-btn" type = "button">add column</button>
+                <button class = "del-col" type = "button"> remove column</button>
+            </div>
+            <div id="hideValuesOnSelect" class = "sec-content">
+                <div><strong>Enter the elements of the matrix</strong></div>
+                <table class = "secTable" id = "mytab2">
+                  
+                    <tbody class = secbody>
+                        <tr class = "secRow">
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                        </tr>
+                        <tr class = "secRow">
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>   
+                        </tr>
+                        <tr class = "secRow">
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>
+                            <th class = "in2"><input class = "input2" type="number"></th>   
+                        </tr> 
+                    </tbody>
+                    
+                       
+                </table>
+                <div class="btn-opt">
+                        <button type = "button" class = "sec-btn">add row</button>
+                        <button type = "button" class = "sec-delRow">delete row</button>
+                        <button type = "button" class = "sec-colBtn">add column</button>
+                        <button type = "button" class = "sec-delCol"> remove column</button>
+                </div>
+            </div>
+
+            <button type = "button" class = "answer-btn">Calculate</button>
+            <!--  -->
+        </form>
+        <div class="result"></div>
+        </div>
+        <script src="script.js"></script>
+<script>
+    function displayDivDemo(id, elementValue) {
+    document.getElementById(id).style.display = elementValue.value == 1? 'block' : 'none !important';
+    } 
+</script>
+</body>
+
+
+</html>
