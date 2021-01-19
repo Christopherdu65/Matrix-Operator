@@ -375,6 +375,12 @@
         }
         return product;
     }
+  
+     let delContn = document.querySelector(".delBtn");
+    delContn.onclick = function(){
+        let res = document.querySelector(".result");
+        res.innerHTML = "";
+    }
     //convert 1d array to 2d array based on number of column
     function splitArray(array, part) {
         var tmp = [];
