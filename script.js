@@ -151,12 +151,13 @@
         let temp = Array.prototype.slice.call(document.querySelectorAll(".input1"));
         let array = splitArray(temp, document.getElementById("mytab").rows[0].cells.length);
         let res = document.querySelector(".result");
+        res.innerHTML = "";
         let op = document.querySelector(".operator").value;
         //console.log(op);
         if(op ==0){
            
             if (typeof(det(array)) == 'number')
-                res.innerHTML += "Find the <small>determinant</small><br><br> The determinant of " +" is  <strong>" + det(array) +"</strong><br><br><br>"   
+                res.innerHTML = "Find the <small>determinant</small><br><br> The determinant of " +" is  <strong>" + det(array) +"</strong><br><br><br>"   
             //console.log(document.getElementById("mytab").rows[0].cells.length);
             //let ans = det(array);
             //console.log(ans)
@@ -173,7 +174,7 @@
             // }
            
             if(ans != null){
-                res.innerHTML+= "Find the <small>multiplication</small> <br><br>";
+                res.innerHTML= "Find the <small>multiplication</small> <br><br>";
                 outputMatrix(ans);
                 res.innerHTML+= "<br><br></br>";
             }
@@ -183,7 +184,7 @@
             let rev = inverse(array);
           //  console.log(rev.length);
           if(rev != null){
-            res.innerHTML += "Find the <small>inverse</small>: <br><br>";
+            res.innerHTML = "Find the <small>inverse</small>: <br><br>";
             outputMatrix(rev);
             res.innerHTML += "<br><br><br>"
             }
@@ -194,7 +195,7 @@
         function det(M) {
             let res = document.querySelector(".result");
             if(M.length != M[0].length){
-                res.innerHTML += "Only square matrices have determinant. Determinant can't be found<br><br><br>"
+                res.innerHTML = "Only square matrices have determinant. Determinant can't be found<br><br><br>"
                 return;
             }
             if (M.length==2) {
@@ -233,7 +234,7 @@
         let res = document.querySelector(".result");
         //if the matrix isn't square: exit (error)
         if(M.length !== M[0].length){
-            res.innerHTML += "The matrix isn't square. Inverse can't be found.<br><br><br>";
+            res.innerHTML = "The matrix isn't square. Inverse can't be found.<br><br><br>";
             return;
     }
         //create the identity matrix (I), and a copy (C) of the original
@@ -282,7 +283,7 @@
                 e = C[i][i];
                 //if it's still 0, not invertable (error)
                 if(e==0){
-                    res.innerHTML += "The matrix is not invertible. Inverse can't be found.<br><br><br>";
+                    res.innerHTML = "The matrix is not invertible. Inverse can't be found.<br><br><br>";
                     return;}
             }
             
@@ -349,16 +350,16 @@
     function multiply(a, b){
         let res = document.querySelector(".result");
             if (!Array.isArray(a) || !Array.isArray(b) || !a.length || !b.length) {
-                result.innerHTML += "arguments should be in 2-dimensional array format<br><br><br>";
-                throw new Error('arguments should be in 2-dimensional array format');
+                res.innerHTML = "arguments should be in 2-dimensional array format<br><br><br>";
+                 throw new Error('arguments should be in 2-dimensional array format');
         }
         let x = a.length,
         z = a[0].length,
         y = b[0].length;
         if (b.length !== z) {
            // XxZ & ZxY => XxY
-           result.innerHTML += 'number of columns in the first matrix should be the same as the number of rows in the second<br><br><br>';
-           throw new Error('number of columns in the first matrix should bethe same as the number of rows in the second');
+           res.innerHTML = '<br><br><br><small>number of columns in the first matrix should be the same as the number of rows in the second<br><br><br><br><br>';
+            throw new Error('number of columns in the first matrix should bethe same as the number of rows in the second');
         }
         let productRow = Array.apply(null, new Array(y)).map(Number.prototype.valueOf, 0);
         let product = new Array(x);
@@ -376,11 +377,6 @@
         return product;
     }
     //convert 1d array to 2d array based on number of column
-    let delContn = document.querySelector(".delBtn");
-    delContn.onclick = function(){
-        let res = document.querySelector(".result");
-        res.innerHTML = "";
-    }
     function splitArray(array, part) {
         var tmp = [];
         for(var i = 0; i < array.length; i += part) {
