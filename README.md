@@ -8,7 +8,7 @@ program to calculate three operations of matrices
 
 2- Inverse
 {
-  Enter any sqaure n by n matrix
+  Enter any square n by n matrix
 }
 
 3- Multiplication
