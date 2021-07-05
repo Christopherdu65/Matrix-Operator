@@ -69,9 +69,6 @@
           }
       }
 
-    //   function displayDivDemo(id, elementValue) {
-    //     document.getElementById(id).style.display = elementValue.value == 1 ? 'block' : 'none';
-    //  }
     const addSecRowBtn = document.querySelector(".sec-btn");
     addSecRowBtn.onclick = function(){
         addSecRow();
@@ -158,20 +155,11 @@
            
             if (typeof(det(array)) == 'number')
                 res.innerHTML = "Find the <small>determinant</small><br><br> The determinant of " +" is  <strong>" + det(array) +"</strong><br><br><br>"   
-            //console.log(document.getElementById("mytab").rows[0].cells.length);
-            //let ans = det(array);
-            //console.log(ans)
         }
         else if(op == 1) { 
             let temp = Array.prototype.slice.call(document.querySelectorAll(".input2"));
             let array2 = splitArray(temp, document.getElementById("mytab2").rows[0].cells.length);
             let ans = multiply(array, array2);
-            // if(array.length == array2.length && array[0].length == array2[0].length){
-            //     ans = multiplynbyn(array, array2);
-            // }
-            // else{
-            //      ans = multiply(array, array2);
-            // }
            
             if(ans != null){
                 res.innerHTML= "Find the <small>multiplication</small> <br><br>";
@@ -268,12 +256,12 @@
                     if(C[ii][i] != 0){
                         //it would make the diagonal have a non-0 so swap it
                         for(j=0; j<dim; j++){
-                            e = C[i][j];       //temp store i'th row
-                            C[i][j] = C[ii][j];//replace i'th row by ii'th
-                            C[ii][j] = e;      //repace ii'th by temp
-                            e = I[i][j];       //temp store i'th row
-                            I[i][j] = I[ii][j];//replace i'th row by ii'th
-                            I[ii][j] = e;      //repace ii'th by temp
+                            e = C[i][j];       
+                            C[i][j] = C[ii][j];
+                            C[ii][j] = e;  
+                            e = I[i][j];       
+                            I[i][j] = I[ii][j];
+                            I[ii][j] = e;
                         }
                         //don't bother checking other rows since we've swapped
                         break;
@@ -308,8 +296,8 @@
                 // stuff left of diagonal is 0 (which it should be if we made this
                 // algorithm correctly)
                 for(j=0; j<dim; j++){
-                    C[ii][j] -= e*C[i][j]; //apply to original matrix
-                    I[ii][j] -= e*I[i][j]; //apply to identity
+                    C[ii][j] -= e*C[i][j];
+                    I[ii][j] -= e*I[i][j];
                 }
             }
         }
